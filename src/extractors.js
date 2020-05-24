@@ -102,6 +102,10 @@ const getProductDetail = ($, url) => {
                 .map(propId => (skuModule.productSKUPropertyList ? skuModule.productSKUPropertyList
                     .reduce((arr, obj) => { return arr.concat(obj.skuPropertyValues); }, [])
                     .find(propVal => propVal.propertyValueId === parseInt(propId, 10)).propertyValueName : null)),
+            images: skuPriceItem.skuPropIds.split(',')
+                .map(propId => (skuModule.productSKUPropertyList ? skuModule.productSKUPropertyList
+                    .reduce((arr, obj) => { return arr.concat(obj.skuPropertyValues); }, [])
+                    .find(propVal => propVal.propertyValueId === parseInt(propId, 10)).skuPropertyImagePath : null)),
         })),
         companyId: recommendModule.companyId,
         memberId: commonModule.sellerAdminSeq,
